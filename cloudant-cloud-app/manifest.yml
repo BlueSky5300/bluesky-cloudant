@@ -1,0 +1,9 @@
+applications:
+  - instances: 1
+    timeout: 180
+    name: app-deployment-demo
+    buildpack: liberty-for-java
+    path: ./target/cloudant-cloud-app-1.0.0.jar
+    memory: 512M
+    domain: mybluemix.net
+    host: app-deployment-demo
