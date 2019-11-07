@@ -9,6 +9,7 @@ public class CloudantProperties {
     private String account;
     private String username;
     private String password;
+    private boolean bindService;
     private String url;
     private String proxyUrl;
     private String proxyUser;
@@ -40,6 +41,14 @@ public class CloudantProperties {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isBindService() {
+        return bindService;
+    }
+
+    public void setBindService(boolean bindService) {
+        this.bindService = bindService;
     }
 
     public String getUrl() {

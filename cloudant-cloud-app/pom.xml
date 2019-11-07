@@ -17,6 +17,10 @@
     <name>cloudant-cloud-app</name>
     <description>cloudant-cloud-app</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -80,6 +84,11 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
+        </repository>
+        <repository>
+            <id>ibm-cloud-public-maven</id>
+            <name>ibm-cloud-public-maven</name>
+            <url>https://s3.jp-tok.cloud-object-storage.appdomain.cloud/andyfu-maven-repo</url>
         </repository>
     </repositories>
 

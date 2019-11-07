@@ -1,4 +1,7 @@
+server:
+  port: 443
 cloudant:
   username: 90eb1607-cd15-4f06-bae7-5d47a6488474-bluemix
   password: 81e7d3c56c4e240542753351f4ead525af67e389717a5b70d75984fd79471bb0
   url: https://90eb1607-cd15-4f06-bae7-5d47a6488474-bluemix:81e7d3c56c4e240542753351f4ead525af67e389717a5b70d75984fd79471bb0@90eb1607-cd15-4f06-bae7-5d47a6488474-bluemix.cloudantnosqldb.appdomain.cloud
+  bindService: false

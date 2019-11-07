@@ -70,7 +70,10 @@ public class CloudantDBManager {
 
     private CloudantClient createClient(CloudantProperties config) {
         String VCAP_SERVICES = System.getenv("VCAP_SERVICES");
-        if (null != VCAP_SERVICES) {
+        if (config.isBindService()) {
+            if (null == VCAP_SERVICES) {
+                throw new RuntimeException("VCAP_SERVICES not found, please set bindService as false in application.yml.");
+            }
             JsonObject obj = (JsonObject) new JsonParser().parse(VCAP_SERVICES);
             Map.Entry<String, JsonElement> dbEntry = null;
             Set<Map.Entry<String, JsonElement>> entries = obj.entrySet();
@@ -87,8 +90,15 @@ public class CloudantDBManager {
             obj = (JsonObject) obj.get("credentials");
             config.setUsername(obj.get("username").toString());
             config.setPassword(obj.get("password").toString());
+            config.setUrl(obj.get("url").toString());
         }
         try {
+            URL url = new URL(config.getUrl());
+            System.out.println(config.getUsername());
+            System.out.println(config.getPassword());
+            System.out.println(config.getUrl());
+//            ClientBuilder clientBuilder = ClientBuilder.url(url)
+//                    .username(config.getUsername()).password(config.getPassword());
             ClientBuilder clientBuilder = ClientBuilder.account(config.getUsername())
                     .username(config.getUsername()).password(config.getPassword());
             if (null != config.getProxyUrl()) {
